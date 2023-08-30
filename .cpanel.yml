@@ -2,3 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/copyecer/public_html/
+    - cp -R /https://github.com/princewill-dev/portfolio.git/* $DEPLOYPATH
