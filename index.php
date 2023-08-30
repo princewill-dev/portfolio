@@ -41,7 +41,7 @@
                                 <img src="images/user_icon.jpg" alt="Personal Portfolio Images" width="100px" style="border: 2px solid #fff; border-radius: 5px;">
                                 <br>
                                 <br>
-                                <span>hello, my name is Princewill</span>
+                                <span>Hi, my name is Princewill</span>
                                 <h1 class="title">I build solutions for the web.</span></h1>
                                 <div>
                                     
