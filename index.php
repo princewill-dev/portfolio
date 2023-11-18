@@ -116,6 +116,30 @@
                         <div class="inner">
                             <div class="thumbnail">
                                 <a href="javascript:void(0)">
+                                    <img src="images/terminal.png" alt="Personal Portfolio Images">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <div class="category-info">
+                                    <div class="category-list">
+                                        <a href="javascript:void(0)">API Terminal (simulation)</a>
+                                    </div>
+                                    <!-- <div class="meta">
+                                        <span><a href="javascript:void(0)"><i class="feather-heart"></i></a> 600</span>
+                                    </div> -->
+                                </div>
+                                <p>A sample API terminal web app that queries API endpoints with specific commands and displays the results in the terminal interface </p>
+                                <a href="https://princewilldev.com/terminal" target="_blank">view project<i class="feather-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                    <div class="rn-portfolio" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                        <div class="inner">
+                            <div class="thumbnail">
+                                <a href="javascript:void(0)">
                                     <img src="images/email-home.png" alt="Personal Portfolio Images">
                                 </a>
                             </div>

@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/copyecer/public_html/
-    - cp -R /home/copyecer/public_html/* $DEPLOYPATH
