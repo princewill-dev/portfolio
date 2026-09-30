@@ -41,6 +41,20 @@ DATABASE_URL=postgres://USER:PASSWORD@HOST:5432/DBNAME
 or the individual variables (`DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`,
 `DB_PORT`). Then run `python manage.py migrate` against the new database.
 
+## Seeding the original projects
+
+The original projects and skills are seeded automatically by the
+`portfolio.0002_seed_content` migration. To (re)seed them on demand — safe to
+run repeatedly, it updates existing rows rather than duplicating:
+
+```bash
+python manage.py seed_projects          # create/update the 7 projects + 9 skills
+python manage.py seed_projects --flush  # wipe Projects/Skills first, then seed
+```
+
+Run this in an environment where the database host resolves (e.g. inside the
+Docker platform that hosts your Postgres).
+
 ## Managing content
 
 - **Projects** – add/edit from the admin. Each project has a title, slug
