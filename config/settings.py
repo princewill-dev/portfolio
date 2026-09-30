@@ -44,6 +44,10 @@ CSRF_TRUSTED_ORIGINS = [
     if origin.strip()
 ]
 
+# TLS is terminated by the platform's reverse proxy, so trust the
+# X-Forwarded-Proto header to know the original request was HTTPS.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 # Application definition
 
