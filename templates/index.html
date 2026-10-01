@@ -39,32 +39,29 @@
                         <div class="content">
                             
                             <div class="inner">
-                                <img src="{% static 'images/user_icon.jpg' %}" alt="Personal Portfolio Images" width="100px" style="border: 2px solid #fff; border-radius: 5px;">
+                                <img src="{{ site.display_image }}" alt="Personal Portfolio Images" width="100px" style="border: 2px solid #fff; border-radius: 5px;">
                                 <br>
                                 <br>
-                                <span>Hi, my name is Princewill</span>
-                                <h1 class="title">I build solutions for the web.</span></h1>
+                                <span>{{ site.greeting }}</span>
+                                <h1 class="title">{{ site.headline }}</h1>
                                 <div>
-                                    
-                                    <p class="description">
-                                        I'm a software developer based in Lagos, Nigeria. I craft API, websites and digital services that prioritizes the user's experience by removing ununnecessary bottlenecks and frictions.
-                                    </p>
 
-                                    <!--<a class="rn-btn" target="_blank" href="mailto:hello@princewilldev.com"><span>Let's talk</span></a>-->
-                                    
-                                    <h3 style="font-size: 30px;">Get in touch</h3>
-                                    <a href="mailto:dev.princewill@gmail.com">dev.princewill@gmail.com</a>
+                                    <div class="description">
+                                        {{ site.description|safe }}
+                                    </div>
+
+                                    <h3 style="font-size: 30px;">{{ site.contact_heading }}</h3>
+                                    {% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
                                     <br>
                                     <br>
-                                    <a class="rn-btn" href="https://docs.google.com/document/d/1QutZeX4r2hYstfGHGkilooOu-bqKSebT8jodC1YFilo" target="_blank" style="color: #fff;">My Resume</a>
-                                    
-                                    <a class="rn-btn" href="https://github.com/princewill-dev" target="_blank" style="color: #fff;">Github Profile</a>
-                                    
+                                    {% if site.resume_file %}<a class="rn-btn" href="{{ site.resume_file.url }}" target="_blank" style="color: #fff;">My Resume</a>{% endif %}
+                                    {% if site.github_url %}<a class="rn-btn" href="{{ site.github_url }}" target="_blank" style="color: #fff;">Github Profile</a>{% endif %}
+
                                     <div class="social-share-inner-left">
                                         <br>
                                         <ul class="social-share d-flex liststyle">
-                                            <li class="twitter"><a href="https://twitter.com/princewill_dev"><i data-feather="twitter" target="_blank"></i></a></li>
-                                            <li class="linkedin"><a href="https://www.linkedin.com/in/princewilldev" target="_blank"><i data-feather="linkedin"></i></a></li>
+                                            {% if site.twitter_url %}<li class="twitter"><a href="{{ site.twitter_url }}"><i data-feather="twitter" target="_blank"></i></a></li>{% endif %}
+                                            {% if site.linkedin_url %}<li class="linkedin"><a href="{{ site.linkedin_url }}" target="_blank"><i data-feather="linkedin"></i></a></li>{% endif %}
                                         </ul>
                                     </div>
                                 </div>
@@ -155,11 +152,11 @@
 
                         <div class="logo">
                             <a href="./">
-                                <img src="{% static 'images/user_icon.jpg' %}" alt="user icon">
+                                <img src="{{ site.display_image }}" alt="user icon">
                             </a>
                         </div>
 
-                        <p class="description mt--30">© {% now "Y" %} princewilldev.com </p>
+                        <p class="description mt--30">© {% now "Y" %} {{ site.footer_text }} </p>
                     </div>
                 </div>
             </div>

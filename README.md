@@ -57,12 +57,23 @@ Docker platform that hosts your Postgres).
 
 ## Managing content
 
+- **Site Content** – a single editable row for the homepage hero: greeting,
+  headline (tagline), description (rich text — bold/links/lists), contact
+  heading, email, profile photo, social links, and footer text. The admin
+  opens straight into the editor and cannot add/delete rows.
+- **CV / Resume** – upload a PDF, DOC or DOCX (max 10 MB) under *Site
+  Content → CV / Resume*. Uploading a new file replaces the current one (the
+  old file is deleted). The **My Resume** button is hidden on the site until a
+  file is present; PDFs open inline, Word documents download.
 - **Projects** – add/edit from the admin. Each project has a title, slug
   (auto-filled), description, link, order, and a published toggle.
   Upload a thumbnail, or leave it empty to fall back to a bundled
   `static_image` path.
 - **Skills** – the icons shown in the "Primary Skills on" strip. Upload an
   icon or keep the static fallback.
+
+The rich-text description uses TinyMCE loaded from a CDN (no extra Python
+package), wired up by `static/assets/js/admin/tinymce-init.js`.
 
 ## Project layout
 
