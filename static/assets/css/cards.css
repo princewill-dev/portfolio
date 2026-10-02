@@ -1,0 +1,11 @@
+/* Home page portfolio cards: let each card size to its own content instead of
+   stretching to match the tallest card in the same row. */
+.rn-portfolio-area .row--25 {
+    align-items: flex-start;
+}
+
+.rn-portfolio-area .row--25 .rn-portfolio {
+    display: block;
+    width: 100%;
+    height: auto;
+}
