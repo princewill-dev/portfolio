@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 from django.db import models
 from django.shortcuts import redirect
@@ -12,8 +13,16 @@ admin.site.site_title = "Princewill Portfolio"
 admin.site.index_title = "Manage your portfolio"
 
 
+class ProjectAdminForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = "__all__"
+        widgets = {"content": RichTextWidget}
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    form = ProjectAdminForm
     list_display = (
         "thumbnail",
         "title",
@@ -24,7 +33,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display_links = ("title",)
     list_editable = ("order", "is_published")
     list_filter = ("is_published", "created_at")
-    search_fields = ("title", "description", "link")
+    search_fields = ("title", "description", "content", "link")
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ("preview", "created_at", "updated_at")
     ordering = ("order", "-created_at")
@@ -39,6 +48,17 @@ class ProjectAdmin(admin.ModelAdmin):
                     "description",
                     "link",
                 )
+            },
+        ),
+        (
+            "Full details",
+            {
+                "fields": ("content",),
+                "description": (
+                    "The in-depth write-up shown on the project's own page. "
+                    "Use the toolbar for headings, bold, lists, links, images "
+                    "and code."
+                ),
             },
         ),
         (

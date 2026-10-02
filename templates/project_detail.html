@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ project.title }} || Chibuike Princewill Ezekude</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="{{ project.description|striptags|truncatechars:160 }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/nav_icon.png' %}">
+    <!-- CSS 
+    ============================================ -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/feature.css' %}">
+    <!-- Style css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Project detail css -->
+    <link rel="stylesheet" href="{% static 'assets/css/project-detail.css' %}">
+</head>
+
+<body class="template-color-1">
+
+    <!-- Start Main Page Wrapper -->
+    <main class="main-page-wrapper">
+
+        <div class="rn-project-detail-area rn-section-gap">
+            <div class="container">
+
+                <a class="project-detail-back" href="{% url 'portfolio:index' %}#portfolio">
+                    <i class="feather-arrow-left"></i> Back to all projects
+                </a>
+
+                <div class="project-detail-header">
+                    <h1 class="project-title">{{ project.title }}</h1>
+                    {% if project.description %}
+                    <p class="project-brief">{{ project.description }}</p>
+                    {% endif %}
+                </div>
+
+                {% if project.display_image %}
+                <div class="project-detail-thumbnail">
+                    <img src="{{ project.display_image }}" alt="{{ project.title }}">
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        {% if project.content %}
+                        <div class="project-detail-content">
+                            {{ project.content|safe }}
+                        </div>
+                        {% else %}
+                        <div class="project-detail-content">
+                            <p>Full details for this project are coming soon.</p>
+                        </div>
+                        {% endif %}
+
+                        <div class="project-detail-actions">
+                            <a class="rn-btn" href="{% url 'portfolio:index' %}#portfolio" style="color: #fff;">Back to home</a>
+                            {% if project.link %}
+                            <a class="rn-btn" href="{{ project.link }}" target="_blank" rel="noopener" style="color: #fff; margin-left: 12px;">View live project<i class="feather-arrow-up-right"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Start Footer Area -->
+    <div class="rn-footer-area rn-section-gap section-separator">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-area text-center">
+
+                        <div class="logo">
+                            <a href="{% url 'portfolio:index' %}">
+                                <img src="{{ site.display_image }}" alt="user icon">
+                            </a>
+                        </div>
+
+                        <p class="description mt--30">© {% now "Y" %} {{ site.footer_text }} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Area -->
+
+<!-- JS ============================================ -->
+<script src="{% static 'assets/js/vendor/jquery.js' %}"></script>
+<script src="{% static 'assets/js/vendor/modernizer.min.js' %}"></script>
+<script src="{% static 'assets/js/vendor/feather.min.js' %}"></script>
+<script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
+<script src="{% static 'assets/js/vendor/bootstrap.js' %}"></script>
+<script src="{% static 'assets/js/vendor/text-type.js' %}"></script>
+<script src="{% static 'assets/js/vendor/wow.js' %}"></script>
+<script src="{% static 'assets/js/vendor/aos.js' %}"></script>
+<script src="{% static 'assets/js/vendor/particles.js' %}"></script>
+<script src="{% static 'assets/js/vendor/jquery-one-page-nav.js' %}"></script>
+<!-- main JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.templatetags.static import static
+from django.urls import reverse
 from django.utils.text import slugify
 
 from .validators import validate_cv_size
@@ -17,7 +18,16 @@ class Project(models.Model):
 
     title = models.CharField(max_length=120)
     slug = models.SlugField(max_length=140, unique=True, blank=True)
-    description = models.TextField(help_text="Short summary shown on the card.")
+    description = models.TextField(
+        help_text="Brief summary shown on the home page card."
+    )
+    content = models.TextField(
+        blank=True,
+        help_text=(
+            "Full project details shown on the project page. Supports rich "
+            "text: headings, bold, links, lists, images and code."
+        ),
+    )
     image = models.ImageField(
         upload_to="projects/",
         blank=True,
@@ -46,6 +56,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("portfolio:project_detail", args=[self.slug])
 
     def save(self, *args, **kwargs):
         if not self.slug:

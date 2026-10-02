@@ -66,9 +66,11 @@ Docker platform that hosts your Postgres).
   old file is deleted). The **My Resume** button is hidden on the site until a
   file is present; PDFs open inline, Word documents download.
 - **Projects** – add/edit from the admin. Each project has a title, slug
-  (auto-filled), description, link, order, and a published toggle.
-  Upload a thumbnail, or leave it empty to fall back to a bundled
-  `static_image` path.
+  (auto-filled), a **brief description** (shown on the home page card), and
+  **full details** (rich text, shown on the project's own page). Also: link,
+  order, and a published toggle. Upload a thumbnail, or leave it empty to fall
+  back to a bundled `static_image` path. Clicking a card opens
+  `/project/<slug>/`; unpublished projects return 404.
 - **Skills** – the icons shown in the "Primary Skills on" strip. Upload an
   icon or keep the static fallback.
 
@@ -80,7 +82,7 @@ package), wired up by `static/assets/js/admin/tinymce-init.js`.
 ```
 config/        Django project (settings, urls)
 portfolio/     App: models, admin, views, migrations
-templates/     index.html (rendered view)
+templates/     index.html + project_detail.html (rendered views)
 static/        assets/ and images/ moved here
 media/         Admin uploads (gitignored)
 ```
