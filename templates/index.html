@@ -129,6 +129,7 @@
                                 </div>
                                 <p>{{ project.description }}</p>
                                 <a href="{{ project.get_absolute_url }}">view details<i class="feather-arrow-up-right"></i></a>
+                                {% if project.link %}<a href="{{ project.link }}" target="_blank" rel="noopener" style="margin-left: 18px;">visit<i class="feather-external-link"></i></a>{% endif %}
                             </div>
                         </div>
                     </div>
